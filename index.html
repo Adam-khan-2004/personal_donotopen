@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- GitHub Pages / mobile friendly -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description" content="A little place made especially for you.">
-    <meta name="theme-color" content="#090718">
+    <meta
+        name="description"
+        content="A little place made especially for you."
+    >
+
+    <meta
+        name="theme-color"
+        content="#24111b"
+    >
 
     <title>A Little Place Made For You ♡</title>
 
-    <!-- Google Fonts -->
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet"
     >
 
@@ -25,44 +37,71 @@
 
 <body>
 
-    <!-- =========================================
+    <!-- =====================================================
          LOADING SCREEN
-    ========================================== -->
+    ====================================================== -->
 
     <div id="loader" class="loader">
         <div class="loader-content">
+
             <div class="loader-heart">♡</div>
+
             <p>Preparing something special...</p>
+
         </div>
     </div>
 
 
-    <!-- =========================================
-         MUSIC BUTTON
-    ========================================== -->
+    <!-- =====================================================
+         FLOATING MUSIC BUTTON
+    ====================================================== -->
 
     <button
         id="musicToggle"
         class="music-toggle"
         aria-label="Play music"
-        title="Play music"
+        title="Play or pause music"
+        type="button"
     >
         <span class="music-icon">♫</span>
     </button>
 
-    <audio id="backgroundMusic" loop preload="metadata">
-        <source src="assets/music/favorite-song.mp3" type="audio/mpeg">
+
+    <!-- =====================================================
+         BACKGROUND MUSIC
+         File:
+         assets/music/song.mp3
+    ====================================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="metadata"
+    >
+        <source
+            src="assets\music.mpeg"
+            type="audio/mpeg"
+        >
+
         Your browser does not support audio playback.
     </audio>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 1 — MOON
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="moonSection" class="hero-section">
+    <section
+        id="moonSection"
+        class="hero-section"
+    >
 
-        <div class="stars" aria-hidden="true">
+        <!-- Stars -->
+
+        <div
+            class="stars"
+            aria-hidden="true"
+        >
             <span></span>
             <span></span>
             <span></span>
@@ -85,19 +124,35 @@
             <span></span>
             <span></span>
         </div>
+
 
         <div class="moon-glow"></div>
 
+
+        <!-- Moon -->
+
         <div class="moon">
+
             <img
-                src="assets/images/moon.jpg"
+                src="assets/moon.jpg"
                 alt="The moon"
-                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-moon');"
+                onerror="
+                    this.style.display='none';
+                    this.parentElement.classList.add('fallback-moon');
+                "
             >
+
         </div>
 
+
+        <!-- Hero content -->
+
         <div class="hero-content">
-            <p class="eyebrow">A little something for you</p>
+
+            <p class="eyebrow">
+                A little something for you
+            </p>
+
 
             <h1>
                 For someone who<br>
@@ -105,49 +160,83 @@
                 of the sky.
             </h1>
 
+
             <p class="hero-subtitle">
                 Some things are easier to feel than to say.
             </p>
 
-            <button class="primary-button" id="enterButton">
+
+            <!--
+                This click starts the music.
+                Modern browsers normally require
+                user interaction before playing audio.
+            -->
+
+            <button
+                class="primary-button"
+                id="enterButton"
+                type="button"
+            >
                 <span>Enter</span>
                 <span>♡</span>
             </button>
+
         </div>
 
+
+        <!-- Scroll hint -->
+
         <div class="scroll-hint">
+
             <span>scroll gently</span>
+
             <div class="scroll-line"></div>
+
         </div>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 2 — LETTER
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="letterSection" class="paper-section">
+    <section
+        id="letterSection"
+        class="paper-section"
+    >
 
         <div class="paper-background"></div>
 
-        <div class="letter-intro reveal">
-            <span class="section-number">01</span>
 
-            <p class="small-heading">A few words from me</p>
+        <div class="letter-intro reveal">
+
+            <span class="section-number">
+                01
+            </span>
+
+
+            <p class="small-heading">
+                A few words from me
+            </p>
+
 
             <h2>
                 I couldn't give you<br>
                 something in person...
             </h2>
 
+
             <p class="intro-text">
                 So I made you a little place instead.
             </p>
+
         </div>
 
 
-        <!-- Envelope -->
+        <!-- =================================================
+             ENVELOPE
+        ================================================== -->
 
         <div class="envelope-wrapper reveal">
 
@@ -155,11 +244,18 @@
                 id="envelope"
                 class="envelope"
                 aria-label="Open the letter"
+                type="button"
             >
 
                 <div class="envelope-back"></div>
 
+
+                <!-- Letter paper -->
+
                 <div class="envelope-paper">
+
+                    <div class="letter-paper-decoration"></div>
+
 
                     <div class="letter-content">
 
@@ -167,69 +263,86 @@
                             Written especially for zargiya
                         </p>
 
+
                         <p class="letter-greeting">
                             Dear jannah,
                         </p>
 
-                        <!-- =================================
-                             REPLACE THIS LETTER
-                        ================================== -->
 
- 
+                        <p>
+                            I am writing this letter to you. I hope you are fine and having a great day.
+                            If not, may this letter make your day special, like you made my day special
+                            whenever I saw a notification from you.
+                        </p>
 
-<p>
-    I am writing this letter to you. I hope you are fine and having a great day.
-    If not, may this letter make your day special, like you made my day special
-    whenever I saw a notification from you.
-</p>
 
-<p>
-    I still can't believe I confessed everything to you, and we had such a great
-    time together in such a short span of time. With you, time goes so fast.
-    I can't even understand sometimes. With you, I never feel bored or anything.
-    You are such a sweetheart that you always motivate me, and with you, I am now
-    more serious about my future and career.
-</p>
+                        <p>
+                            I still can't believe I confessed everything to you, and we had such a great
+                            time together in such a short span of time. With you, time goes so fast.
+                            I can't even understand sometimes. With you, I never feel bored or anything.
+                            You are such a sweetheart that you always motivate me, and with you, I am now
+                            more serious about my future and career.
+                        </p>
 
-<p>
-    I promise I will work hard to make sure that we end up together, In Sha Allah.
-    I will make myself better, and I will be a man that you will proudly say you
-    love. I will make sure I fulfill your standards. I will never want you to
-    lower your standards. I want to become something that makes your standards
-    go even higher.
-</p>
 
-<p>
-    I will be a man of my words, and a man with whom you will feel safe, happy,
-    and free. I always want you to become so successful in your life that I could
-    proudly say that the girl I love the most is successful. And it will always
-    be like that, even if things don't go like I want.
-</p>
+                        <p>
+                            I promise I will work hard to make sure that we end up together, In Sha Allah.
+                            I will make myself better, and I will be a man that you will proudly say you
+                            love. I will make sure I fulfill your standards. I will never want you to
+                            lower your standards. I want to become something that makes your standards
+                            go even higher.
+                        </p>
 
-<p>
-    Warda Zakir Shah, I will do whatever it takes to make you feel special and
-    happy. I will always make sure you fly high in the sky and never stop because
-    of any obstacle. I will remove every thorn in your way, or step on that thorn
-    so that you never get hurt by it.
-</p>
 
-<p class="letter-ending">
-    Yours,<br>
-    <span>Psycho Patient, Adam Sultan urf Chachogay ♡</span>
-</p>
+                        <p>
+                            I will be a man of my words, and a man with whom you will feel safe, happy,
+                            and free. I always want you to become so successful in your life that I could
+                            proudly say that the girl I love the most is successful. And it will always
+                            be like that, even if things don't go like I want.
+                        </p>
+
+
+                        <p>
+                            Warda Zakir Shah, I will do whatever it takes to make you feel special and
+                            happy. I will always make sure you fly high in the sky and never stop because
+                            of any obstacle. I will remove every thorn in your way, or step on that thorn
+                            so that you never get hurt by it.
+                        </p>
+
+
+                        <p class="letter-ending">
+
+                            Yours,<br>
+
+                            <span>
+                                Psycho Patient, Adam Sultan urf Chachogay ♡
+                            </span>
+
+                        </p>
 
                     </div>
 
                 </div>
 
+
+                <!-- Envelope flap -->
+
                 <div class="envelope-flap"></div>
+
+
+                <!-- Front -->
+
                 <div class="envelope-front"></div>
+
+
+                <!-- Wax seal -->
 
                 <div class="envelope-seal">
                     ♡
                 </div>
 
             </button>
+
 
             <p class="envelope-hint">
                 Click the envelope to open it
@@ -240,13 +353,19 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 3 — FLOWERS
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="flowersSection" class="flowers-section">
+    <section
+        id="flowersSection"
+        class="flowers-section"
+    >
 
-        <div class="flower-petals" aria-hidden="true">
+        <div
+            class="flower-petals"
+            aria-hidden="true"
+        >
             <span>✦</span>
             <span>✿</span>
             <span>✦</span>
@@ -255,17 +374,23 @@
             <span>❀</span>
         </div>
 
+
         <div class="section-heading reveal">
 
-            <span class="section-number">02</span>
+            <span class="section-number">
+                02
+            </span>
+
 
             <p class="small-heading">
                 Some things are better said with flowers
             </p>
 
+
             <h2>
                 These are for you.
             </h2>
+
 
             <p>
                 If distance wasn't between us,
@@ -277,21 +402,37 @@
 
         <div class="bouquet reveal">
 
+            <!-- Purple tulips -->
+
             <div class="flower flower-tulips">
+
                 <img
-                    src="assets\tulip.jfif"
+                    src="assets/tulip.jfif"
                     alt="Purple tulips"
-                    onerror="this.style.display='none';"
+                    onerror="
+                        this.style.display='none';
+                        this.parentElement.classList.add('flower-missing');
+                    "
                 >
+
             </div>
 
+
+            <!-- White lilies -->
+
             <div class="flower flower-lilies">
+
                 <img
-                    src="assets\lillies.avif"
+                    src="assets/lillies.avif"
                     alt="White lilies"
-                    onerror="this.style.display='none';"
+                    onerror="
+                        this.style.display='none';
+                        this.parentElement.classList.add('flower-missing');
+                    "
                 >
+
             </div>
+
 
             <div class="bouquet-glow"></div>
 
@@ -299,34 +440,48 @@
 
 
         <div class="flower-message reveal">
+
             <p>
                 Purple tulips for the uniqueness you carry,
                 and white lilies for the quiet beauty in you.
             </p>
 
-            <span>♡</span>
+
+            <span>
+                ♡
+            </span>
+
         </div>
 
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 4 — ABOUT HER
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="aboutSection" class="about-section">
+    <section
+        id="aboutSection"
+        class="about-section"
+    >
 
         <div class="about-background"></div>
 
+
         <div class="about-container">
+
 
             <div class="section-heading reveal">
 
-                <span class="section-number">03</span>
+                <span class="section-number">
+                    03
+                </span>
+
 
                 <p class="small-heading">
                     There are things I don't say enough
                 </p>
+
 
                 <h2>
                     What I see<br>
@@ -338,86 +493,97 @@
 
             <article class="big-letter reveal">
 
-                <div class="quote-mark">“</div>
+                <div class="quote-mark">
+                    “
+                </div>
 
-                <!-- =====================================
-                     REPLACE THIS WITH YOUR REAL PARAGRAPH
-                ====================================== -->
-<p>
-    I still remember the day I first saw you. I am sorry I forgot what you wore
-    that day: a pink hijab with a white kurta with pink flowers on it and a brown
-    bag. I am so thankful to Allah that you came to that gym event that day and
-    that I got to see you.
-</p>
 
-<p>
-    When I saw you for the first time, I thought you were an outsider and that I
-    would never see you again. In my heart, I had already rejected myself because
-    you were, and you still are, so pretty that I couldn't even imagine being able
-    to say hi to you. You were always out of my league. I looked at you and got
-    frozen for some time because of your beauty.
-</p>
+                <p>
+                    I still remember the day I first saw you. I am sorry I forgot what you wore
+                    that day: a pink hijab with a white kurta with pink flowers on it and a brown
+                    bag. I am so thankful to Allah that you came to that gym event that day and
+                    that I got to see you.
+                </p>
 
-<p>
-    But that was a crush. I think real love comes when you get to know the person
-    and then fall in love with that person more and more every day, just like I
-    fell for you. I am still shocked at how I followed you, how I said hi, and
-    how we are still talking. It feels like a beautiful dream, and I don't want
-    to wake up from this dream ever.
-</p>
 
-<p>
-    I feel your absence in my life every day. I miss our sessions. I miss when I
-    used to sit with you and admire you like I had never seen someone like you
-    before. I miss dropping you at the barrier. I miss opening the door for you.
-    I miss carrying an umbrella for you. I miss getting flowers for you. I miss
-    all your jokes. I miss your beautiful talks about life, deen, and philosophy.
-    I miss everything about you.
-</p>
+                <p>
+                    When I saw you for the first time, I thought you were an outsider and that I
+                    would never see you again. In my heart, I had already rejected myself because
+                    you were, and you still are, so pretty that I couldn't even imagine being able
+                    to say hi to you. You were always out of my league. I looked at you and got
+                    frozen for some time because of your beauty.
+                </p>
 
-<p>
-    Some of my most beautiful memories were when I drank from the same straw that
-    you drank from, the chocolate paratha and chai, and when you offered me water
-    from your glass and then drank from the same glass yourself. You said you had
-    never drunk from someone else's glass before, but you left that thing for me.
-    It was your love language, and it still makes me emotional.
-</p>
 
-<p>
-    When you gave me a chance for my proposal, I was so happy that I wanted to
-    dance and run around the entire campus. I felt so good knowing that you
-    trusted me, and I promise I will never break that trust. It is so precious
-    to me.
-</p>
+                <p>
+                    But that was a crush. I think real love comes when you get to know the person
+                    and then fall in love with that person more and more every day, just like I
+                    fell for you. I am still shocked at how I followed you, how I said hi, and
+                    how we are still talking. It feels like a beautiful dream, and I don't want
+                    to wake up from this dream ever.
+                </p>
 
-<p>
-    The umbrella moment... I was so happy that day. I can't even explain it.
-    And opening the door for you, every little moment, everything meant so much
-    to me.
-</p>
 
-<p>
-    After knowing you in person, I am more in love with you than ever. The vibe
-    matches so well between us. You have made me so calm and happy, and I feel
-    so much peace and completeness with you. It feels like I found everything I
-    ever wanted, like you make me complete.
-</p>
+                <p>
+                    I feel your absence in my life every day. I miss our sessions. I miss when I
+                    used to sit with you and admire you like I had never seen someone like you
+                    before. I miss dropping you at the barrier. I miss opening the door for you.
+                    I miss carrying an umbrella for you. I miss getting flowers for you. I miss
+                    all your jokes. I miss your beautiful talks about life, deen, and philosophy.
+                    I miss everything about you.
+                </p>
 
-<p class="about-her-ending">
-    If I have to say something about you, I will say this:
-</p>
 
-<p class="highlight-quote">
-    You are like a beautiful dream to me that never makes me want to wake up,
-    and I want to live in that dream forever. I want to see us grow together,
-    get old together, and never get tired of each other. I want to love you like
-    nobody has ever loved you before.
-</p>
+                <p>
+                    Some of my most beautiful memories were when I drank from the same straw that
+                    you drank from, the chocolate paratha and chai, and when you offered me water
+                    from your glass and then drank from the same glass yourself. You said you had
+                    never drunk from someone else's glass before, but you left that thing for me.
+                    It was your love language, and it still makes me emotional.
+                </p>
 
-<p>
-    I was a boy, but you made me a man. And there is still a lot of room for
-    betterment. I promise I will make myself better every day.
-</p>
+
+                <p>
+                    When you gave me a chance for my proposal, I was so happy that I wanted to
+                    dance and run around the entire campus. I felt so good knowing that you
+                    trusted me, and I promise I will never break that trust. It is so precious
+                    to me.
+                </p>
+
+
+                <p>
+                    The umbrella moment... I was so happy that day. I can't even explain it.
+                    And opening the door for you, every little moment, everything meant so much
+                    to me.
+                </p>
+
+
+                <p>
+                    After knowing you in person, I am more in love with you than ever. The vibe
+                    matches so well between us. You have made me so calm and happy, and I feel
+                    so much peace and completeness with you. It feels like I found everything I
+                    ever wanted, like you make me complete.
+                </p>
+
+
+                <p class="about-her-ending">
+                    If I have to say something about you, I will say this:
+                </p>
+
+
+                <p class="highlight-quote">
+                    You are like a beautiful dream to me that never makes me want to wake up,
+                    and I want to live in that dream forever. I want to see us grow together,
+                    get old together, and never get tired of each other. I want to love you like
+                    nobody has ever loved you before.
+                </p>
+
+
+                <p>
+                    I was a boy, but you made me a man. And there is still a lot of room for
+                    betterment. I promise I will make myself better every day.
+                </p>
+
             </article>
 
         </div>
@@ -425,27 +591,37 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 5 — MEMORIES
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="memoriesSection" class="memories-section">
+    <section
+        id="memoriesSection"
+        class="memories-section"
+    >
 
         <div class="film-grain"></div>
 
+
         <div class="memories-container">
+
 
             <div class="section-heading light reveal">
 
-                <span class="section-number">04</span>
+                <span class="section-number">
+                    04
+                </span>
+
 
                 <p class="small-heading">
                     The moments worth keeping
                 </p>
 
+
                 <h2>
                     A few memories.
                 </h2>
+
 
                 <p>
                     Some moments become special simply because
@@ -458,10 +634,19 @@
             <div class="video-card reveal">
 
                 <div class="video-topbar">
+
                     <span class="record-dot"></span>
-                    <span>MEMORY_01</span>
-                    <span>♡</span>
+
+                    <span>
+                        MEMORY_01
+                    </span>
+
+                    <span>
+                        ♡
+                    </span>
+
                 </div>
+
 
                 <div class="video-wrapper">
 
@@ -470,11 +655,10 @@
                         controls
                         playsinline
                         preload="metadata"
-                        poster="assets/images/memory-poster.jpg"
                     >
 
                         <source
-                            src="assets/moment.mp4.mp4"
+                            src="assets/moment.mp4"
                             type="video/mp4"
                         >
 
@@ -482,12 +666,24 @@
 
                     </video>
 
-                    <div id="videoFallback" class="video-fallback">
-                        <span>🎞️</span>
-                        <p>Your memory video will appear here.</p>
+
+                    <div
+                        id="videoFallback"
+                        class="video-fallback"
+                    >
+
+                        <span>
+                            🎞️
+                        </span>
+
+                        <p>
+                            Your memory video will appear here.
+                        </p>
+
                     </div>
 
                 </div>
+
 
                 <div class="video-caption">
 
@@ -495,9 +691,10 @@
                         A moment worth keeping.
                     </p>
 
+
                     <p>
-                        Replace this text with the story behind
-                        your memory.
+                        Some memories become more valuable
+                        simply because they belong to us.
                     </p>
 
                 </div>
@@ -509,25 +706,34 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 6 — MUSIC
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="musicSection" class="music-section">
+    <section
+        id="musicSection"
+        class="music-section"
+    >
 
         <div class="music-container">
 
+
             <div class="section-heading reveal">
 
-                <span class="section-number">05</span>
+                <span class="section-number">
+                    05
+                </span>
+
 
                 <p class="small-heading">
                     This one is yours
                 </p>
 
+
                 <h2>
                     Your favorite song.
                 </h2>
+
 
                 <p>
                     Some songs become attached to people,
@@ -539,6 +745,7 @@
 
             <div class="music-card reveal">
 
+
                 <div class="album-art">
 
                     <div class="album-art-inner">
@@ -547,17 +754,18 @@
 
                 </div>
 
+
                 <div class="song-info">
 
                     <span class="song-label">
                         PLAYING FOR YOU
                     </span>
 
-                    <!-- CHANGE THESE -->
 
                     <h3 id="songTitle">
                         sailor
                     </h3>
+
 
                     <p id="artistName">
                         Gigi Perez
@@ -572,6 +780,7 @@
                         id="playPauseButton"
                         class="play-button"
                         aria-label="Play music"
+                        type="button"
                     >
                         ▶
                     </button>
@@ -581,7 +790,10 @@
 
                 <div class="progress-area">
 
-                    <span id="currentTime">0:00</span>
+                    <span id="currentTime">
+                        0:00
+                    </span>
+
 
                     <input
                         id="progressBar"
@@ -593,7 +805,10 @@
                         aria-label="Song progress"
                     >
 
-                    <span id="duration">0:00</span>
+
+                    <span id="duration">
+                        0:00
+                    </span>
 
                 </div>
 
@@ -609,13 +824,19 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 7 — MOON RETURNS
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="finalMoonSection" class="final-moon-section">
+    <section
+        id="finalMoonSection"
+        class="final-moon-section"
+    >
 
-        <div class="stars final-stars" aria-hidden="true">
+        <div
+            class="stars final-stars"
+            aria-hidden="true"
+        >
             <span></span>
             <span></span>
             <span></span>
@@ -630,28 +851,38 @@
             <span></span>
             <span></span>
         </div>
+
 
         <div class="final-moon">
 
             <img
                 src="assets/moon.jpg"
                 alt="Moon"
-                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-moon');"
+                onerror="
+                    this.style.display='none';
+                    this.parentElement.classList.add('fallback-moon');
+                "
             >
 
         </div>
 
+
         <div class="final-message reveal">
 
-            <span class="section-number">06</span>
+            <span class="section-number">
+                06
+            </span>
+
 
             <p class="small-heading">
                 And whenever we're far apart...
             </p>
 
+
             <h2>
                 Look up.
             </h2>
+
 
             <p>
                 Somewhere under this same moon,
@@ -663,13 +894,17 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          SECTION 8 — TEDDY
-    ========================================== -->
+    ====================================================== -->
 
-    <section id="teddySection" class="teddy-section">
+    <section
+        id="teddySection"
+        class="teddy-section"
+    >
 
         <div class="teddy-container">
+
 
             <div class="final-intro reveal">
 
@@ -677,41 +912,62 @@
                     One last thing...
                 </p>
 
+
                 <h2>
                     Because there is<br>
                     one thing I still<br>
                     couldn't send.
                 </h2>
 
+
                 <button
                     id="teddyButton"
                     class="primary-button"
+                    type="button"
                 >
-                    <span>Open the last surprise</span>
-                    <span>♡</span>
+                    <span>
+                        Open the last surprise
+                    </span>
+
+                    <span>
+                        ♡
+                    </span>
                 </button>
 
             </div>
 
 
-            <div id="teddyReveal" class="teddy-reveal">
+            <div
+                id="teddyReveal"
+                class="teddy-reveal"
+            >
 
                 <div class="teddy-glow"></div>
+
 
                 <img
                     src="assets/teddy.jfif"
                     alt="A teddy bear"
                     class="teddy-image"
-                    onerror="this.style.display='none'; document.getElementById('teddyEmoji').style.display='block';"
+                    onerror="
+                        this.style.display='none';
+                        document.getElementById('teddyEmoji').style.display='block';
+                    "
                 >
 
-                <div id="teddyEmoji" class="teddy-emoji">
+
+                <div
+                    id="teddyEmoji"
+                    class="teddy-emoji"
+                >
                     🧸
                 </div>
+
 
                 <div class="teddy-heart">
                     ♥
                 </div>
+
 
                 <div class="teddy-message">
 
@@ -719,10 +975,12 @@
                         A hug from far away.
                     </h3>
 
+
                     <p>
                         Until I can give you one myself,
                         let this little bear do it for me.
                     </p>
+
 
                     <div class="signature">
                         Made especially for you ♡
@@ -737,17 +995,21 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =====================================================
          FOOTER
-    ========================================== -->
+    ====================================================== -->
 
     <footer class="site-footer">
 
-        <div class="footer-heart">♡</div>
+        <div class="footer-heart">
+            ♡
+        </div>
+
 
         <p>
             Made with time, thought and a little bit of love.
         </p>
+
 
         <span>
             For you, always.
@@ -755,6 +1017,10 @@
 
     </footer>
 
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
 
