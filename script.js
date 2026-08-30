@@ -1,6 +1,7 @@
 /* =========================================================
    SPECIAL GIFT WEBSITE
-   Main JavaScript
+   Romantic Edition
+   GitHub Pages Friendly
 ========================================================= */
 
 "use strict";
@@ -10,43 +11,113 @@
    DOM ELEMENTS
 ========================================================= */
 
-const loader = document.getElementById("loader");
+const loader =
+    document.getElementById("loader");
 
-const enterButton = document.getElementById("enterButton");
+const enterButton =
+    document.getElementById("enterButton");
 
-const envelope = document.getElementById("envelope");
-const envelopeWrapper = document.querySelector(".envelope-wrapper");
+const envelope =
+    document.getElementById("envelope");
 
-const teddyButton = document.getElementById("teddyButton");
-const teddyReveal = document.getElementById("teddyReveal");
+const envelopeWrapper =
+    document.querySelector(".envelope-wrapper");
 
-const backgroundMusic = document.getElementById("backgroundMusic");
-const musicToggle = document.getElementById("musicToggle");
-const playPauseButton = document.getElementById("playPauseButton");
+const teddyButton =
+    document.getElementById("teddyButton");
 
-const progressBar = document.getElementById("progressBar");
-const currentTimeElement = document.getElementById("currentTime");
-const durationElement = document.getElementById("duration");
+const teddyReveal =
+    document.getElementById("teddyReveal");
 
-const memoryVideo = document.getElementById("memoryVideo");
-const videoFallback = document.getElementById("videoFallback");
+const backgroundMusic =
+    document.getElementById("backgroundMusic");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+const playPauseButton =
+    document.getElementById("playPauseButton");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const currentTimeElement =
+    document.getElementById("currentTime");
+
+const durationElement =
+    document.getElementById("duration");
+
+const memoryVideo =
+    document.getElementById("memoryVideo");
+
+const videoFallback =
+    document.getElementById("videoFallback");
 
 
 /* =========================================================
    PAGE LOADING
 ========================================================= */
 
-window.addEventListener("load", function () {
+window.addEventListener(
+    "load",
+    function () {
 
-    setTimeout(function () {
+        setTimeout(
+            function () {
 
-        if (loader) {
-            loader.classList.add("hidden");
-        }
+                if (loader) {
 
-    }, 900);
+                    loader.classList.add(
+                        "hidden"
+                    );
 
-});
+                }
+
+            },
+            900
+        );
+
+    }
+);
+
+
+/* =========================================================
+   START MUSIC
+========================================================= */
+
+/*
+    Modern browsers commonly block sound that starts
+    without user interaction.
+
+    Our Enter button is an intentional user interaction,
+    so it is the ideal moment to start the song.
+*/
+
+async function startMusic() {
+
+    if (!backgroundMusic) {
+        return;
+    }
+
+
+    try {
+
+        backgroundMusic.volume = 0.45;
+
+        await backgroundMusic.play();
+
+        updateMusicUI();
+
+    } catch (error) {
+
+        console.warn(
+            "Music could not start:",
+            error
+        );
+
+    }
+
+}
 
 
 /* =========================================================
@@ -55,19 +126,39 @@ window.addEventListener("load", function () {
 
 if (enterButton) {
 
-    enterButton.addEventListener("click", function () {
+    enterButton.addEventListener(
+        "click",
+        function () {
 
-        const letterSection = document.getElementById("letterSection");
+            /*
+                Start the song from the opening interaction.
+            */
 
-        if (letterSection) {
+            startMusic();
 
-            letterSection.scrollIntoView({
-                behavior: "smooth"
-            });
+
+            /*
+                Move to the letter section.
+            */
+
+            const letterSection =
+                document.getElementById(
+                    "letterSection"
+                );
+
+
+            if (letterSection) {
+
+                letterSection.scrollIntoView(
+                    {
+                        behavior: "smooth"
+                    }
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -78,35 +169,54 @@ if (enterButton) {
 
 if (envelope) {
 
-    envelope.addEventListener("click", function () {
+    envelope.addEventListener(
+        "click",
+        function () {
 
-        const isOpened = envelope.classList.contains("opened");
+            const isOpened =
+                envelope.classList.contains(
+                    "opened"
+                );
 
-        if (!isOpened) {
 
-            envelope.classList.add("opened");
+            if (!isOpened) {
 
-            if (envelopeWrapper) {
-                envelopeWrapper.classList.add("opened");
+                envelope.classList.add(
+                    "opened"
+                );
+
+
+                if (envelopeWrapper) {
+
+                    envelopeWrapper.classList.add(
+                        "opened"
+                    );
+
+                }
+
+
+                /*
+                    Gently center the opened letter.
+                */
+
+                setTimeout(
+                    function () {
+
+                        envelope.scrollIntoView(
+                            {
+                                behavior: "smooth",
+                                block: "center"
+                            }
+                        );
+
+                    },
+                    700
+                );
+
             }
 
-            /*
-             * After opening the letter, gently move the
-             * page toward the letter.
-             */
-
-            setTimeout(function () {
-
-                envelope.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }, 700);
-
         }
-
-    });
+    );
 
 }
 
@@ -115,25 +225,43 @@ if (envelope) {
    TEDDY REVEAL
 ========================================================= */
 
-if (teddyButton && teddyReveal) {
+if (
+    teddyButton &&
+    teddyReveal
+) {
 
-    teddyButton.addEventListener("click", function () {
+    teddyButton.addEventListener(
+        "click",
+        function () {
 
-        teddyReveal.classList.add("show");
+            teddyReveal.classList.add(
+                "show"
+            );
 
-        teddyButton.style.opacity = "0";
-        teddyButton.style.pointerEvents = "none";
 
-        setTimeout(function () {
+            teddyButton.style.opacity =
+                "0";
 
-            teddyReveal.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
+            teddyButton.style.pointerEvents =
+                "none";
 
-        }, 400);
 
-    });
+            setTimeout(
+                function () {
+
+                    teddyReveal.scrollIntoView(
+                        {
+                            behavior: "smooth",
+                            block: "center"
+                        }
+                    );
+
+                },
+                400
+            );
+
+        }
+    );
 
 }
 
@@ -142,40 +270,83 @@ if (teddyButton && teddyReveal) {
    SCROLL REVEAL
 ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
 
-const revealObserver = new IntersectionObserver(
-    function (entries) {
 
-        entries.forEach(function (entry) {
+if (
+    "IntersectionObserver" in window
+) {
 
-            if (entry.isIntersecting) {
+    const revealObserver =
+        new IntersectionObserver(
+            function (entries) {
 
-                entry.target.classList.add("visible");
+                entries.forEach(
+                    function (entry) {
 
-                /*
-                 * Once visible, we don't need to observe
-                 * the element anymore.
-                 */
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                revealObserver.unobserve(entry.target);
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+
+                            /*
+                                Stop observing after
+                                the animation has happened.
+                            */
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold: 0.12,
+
+                rootMargin:
+                    "0px 0px -40px 0px"
             }
-
-        });
-
-    },
-    {
-        threshold: 0.12,
-        rootMargin: "0px 0px -40px 0px"
-    }
-);
+        );
 
 
-revealElements.forEach(function (element) {
+    revealElements.forEach(
+        function (element) {
 
-    revealObserver.observe(element);
+            revealObserver.observe(
+                element
+            );
 
-});
+        }
+    );
+
+} else {
+
+    /*
+        Fallback for older browsers.
+    */
+
+    revealElements.forEach(
+        function (element) {
+
+            element.classList.add(
+                "visible"
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
@@ -184,26 +355,42 @@ revealElements.forEach(function (element) {
 
 function formatTime(seconds) {
 
-    if (!Number.isFinite(seconds) || seconds < 0) {
+    if (
+        !Number.isFinite(seconds) ||
+        seconds < 0
+    ) {
+
         return "0:00";
+
     }
 
-    const minutes = Math.floor(seconds / 60);
 
-    const remainingSeconds = Math.floor(seconds % 60);
+    const minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+
+    const remainingSeconds =
+        Math.floor(
+            seconds % 60
+        );
+
 
     return (
         minutes +
         ":" +
-        remainingSeconds.toString().padStart(2, "0")
+        remainingSeconds
+            .toString()
+            .padStart(2, "0")
     );
 
 }
 
 
-/* ---------------------------------------------------------
-   Update music UI
---------------------------------------------------------- */
+/* =========================================================
+   MUSIC UI
+========================================================= */
 
 function updateMusicUI() {
 
@@ -211,64 +398,149 @@ function updateMusicUI() {
         return;
     }
 
-    const duration = backgroundMusic.duration;
 
-    const currentTime = backgroundMusic.currentTime;
+    const duration =
+        backgroundMusic.duration;
 
-    if (Number.isFinite(duration) && duration > 0) {
 
-        progressBar.value =
-            (currentTime / duration) * 100;
+    const currentTime =
+        backgroundMusic.currentTime;
+
+
+    /*
+        Update duration.
+    */
+
+    if (
+        durationElement &&
+        Number.isFinite(duration) &&
+        duration > 0
+    ) {
 
         durationElement.textContent =
             formatTime(duration);
 
-    } else {
+    } else if (durationElement) {
 
-        progressBar.value = 0;
-
-        durationElement.textContent = "0:00";
+        durationElement.textContent =
+            "0:00";
 
     }
 
-    currentTimeElement.textContent =
-        formatTime(currentTime);
 
+    /*
+        Update current position.
+    */
+
+    if (currentTimeElement) {
+
+        currentTimeElement.textContent =
+            formatTime(
+                currentTime
+            );
+
+    }
+
+
+    /*
+        Update progress slider.
+    */
+
+    if (progressBar) {
+
+        if (
+            Number.isFinite(duration) &&
+            duration > 0
+        ) {
+
+            progressBar.value =
+                (
+                    currentTime /
+                    duration
+                ) * 100;
+
+        } else {
+
+            progressBar.value = 0;
+
+        }
+
+    }
+
+
+    /*
+        Determine playing state.
+    */
 
     const isPlaying =
         !backgroundMusic.paused &&
         !backgroundMusic.ended;
 
+
     if (isPlaying) {
 
-        playPauseButton.textContent = "❚❚";
+        if (playPauseButton) {
 
-        musicToggle.classList.add("playing");
+            playPauseButton.textContent =
+                "❚❚";
 
-        musicToggle.setAttribute(
-            "aria-label",
-            "Pause music"
-        );
+            playPauseButton.setAttribute(
+                "aria-label",
+                "Pause music"
+            );
+
+        }
+
+
+        if (musicToggle) {
+
+            musicToggle.classList.add(
+                "playing"
+            );
+
+            musicToggle.setAttribute(
+                "aria-label",
+                "Pause music"
+            );
+
+        }
 
     } else {
 
-        playPauseButton.textContent = "▶";
+        if (playPauseButton) {
 
-        musicToggle.classList.remove("playing");
+            playPauseButton.textContent =
+                "▶";
 
-        musicToggle.setAttribute(
-            "aria-label",
-            "Play music"
-        );
+            playPauseButton.setAttribute(
+                "aria-label",
+                "Play music"
+            );
+
+        }
+
+
+        if (musicToggle) {
+
+            musicToggle.classList.remove(
+                "playing"
+            );
+
+            musicToggle.setAttribute(
+                "aria-label",
+                "Play music"
+            );
+
+        }
 
     }
 
 }
 
 
-/* ---------------------------------------------------------
-   Play / Pause
---------------------------------------------------------- */
+/* =========================================================
+   TOGGLE MUSIC
+========================================================= */
 
 async function toggleMusic() {
 
@@ -276,9 +548,15 @@ async function toggleMusic() {
         return;
     }
 
+
     try {
 
-        if (backgroundMusic.paused) {
+        if (
+            backgroundMusic.paused
+        ) {
+
+            backgroundMusic.volume =
+                0.45;
 
             await backgroundMusic.play();
 
@@ -290,23 +568,22 @@ async function toggleMusic() {
 
     } catch (error) {
 
-        /*
-         * Browsers can block audio until the user interacts
-         * with the page. The music button itself is a user
-         * interaction, so this normally succeeds.
-         */
-
         console.warn(
-            "Music could not be started:",
+            "Music could not be toggled:",
             error
         );
 
     }
 
+
     updateMusicUI();
 
 }
 
+
+/* =========================================================
+   FLOATING MUSIC BUTTON
+========================================================= */
 
 if (musicToggle) {
 
@@ -318,6 +595,10 @@ if (musicToggle) {
 }
 
 
+/* =========================================================
+   MAIN MUSIC PLAYER BUTTON
+========================================================= */
+
 if (playPauseButton) {
 
     playPauseButton.addEventListener(
@@ -328,9 +609,9 @@ if (playPauseButton) {
 }
 
 
-/* ---------------------------------------------------------
-   Music events
---------------------------------------------------------- */
+/* =========================================================
+   MUSIC EVENTS
+========================================================= */
 
 if (backgroundMusic) {
 
@@ -339,32 +620,48 @@ if (backgroundMusic) {
         updateMusicUI
     );
 
+
     backgroundMusic.addEventListener(
         "timeupdate",
         updateMusicUI
     );
+
 
     backgroundMusic.addEventListener(
         "play",
         updateMusicUI
     );
 
+
     backgroundMusic.addEventListener(
         "pause",
         updateMusicUI
     );
+
 
     backgroundMusic.addEventListener(
         "ended",
         updateMusicUI
     );
 
+
+    backgroundMusic.addEventListener(
+        "error",
+        function () {
+
+            console.warn(
+                "Could not load assets/music/song.mp3"
+            );
+
+        }
+    );
+
 }
 
 
-/* ---------------------------------------------------------
-   Music progress bar
---------------------------------------------------------- */
+/* =========================================================
+   MUSIC PROGRESS BAR
+========================================================= */
 
 if (progressBar) {
 
@@ -374,12 +671,18 @@ if (progressBar) {
 
             if (
                 backgroundMusic &&
-                Number.isFinite(backgroundMusic.duration) &&
+                Number.isFinite(
+                    backgroundMusic.duration
+                ) &&
                 backgroundMusic.duration > 0
             ) {
 
                 backgroundMusic.currentTime =
-                    (progressBar.value / 100) *
+                    (
+                        Number(
+                            progressBar.value
+                        ) / 100
+                    ) *
                     backgroundMusic.duration;
 
             }
@@ -401,18 +704,25 @@ if (memoryVideo) {
         function () {
 
             if (videoFallback) {
-                videoFallback.style.display = "flex";
+
+                videoFallback.style.display =
+                    "flex";
+
             }
 
         }
     );
+
 
     memoryVideo.addEventListener(
         "loadeddata",
         function () {
 
             if (videoFallback) {
-                videoFallback.style.display = "none";
+
+                videoFallback.style.display =
+                    "none";
+
             }
 
         }
@@ -422,69 +732,32 @@ if (memoryVideo) {
 
 
 /* =========================================================
-   SMOOTH SECTION NAVIGATION
+   IMAGE ERROR INFORMATION
 ========================================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach(
-    function (link) {
+document
+    .querySelectorAll("img")
+    .forEach(
+        function (image) {
 
-        link.addEventListener(
-            "click",
-            function (event) {
+            image.addEventListener(
+                "error",
+                function () {
 
-                const targetId =
-                    link.getAttribute("href");
-
-                const target =
-                    document.querySelector(targetId);
-
-                if (target) {
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
+                    console.warn(
+                        "Image could not be loaded:",
+                        image.src
+                    );
 
                 }
+            );
 
-            }
-        );
-
-    }
-);
+        }
+    );
 
 
 /* =========================================================
-   IMAGE ERROR LOGGING
-========================================================= */
-
-document.querySelectorAll("img").forEach(
-    function (image) {
-
-        image.addEventListener(
-            "error",
-            function () {
-
-                /*
-                 * We intentionally don't break the page
-                 * when a personal image hasn't been added yet.
-                 */
-
-                console.warn(
-                    "Image could not be loaded:",
-                    image.src
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   KEYBOARD ACCESSIBILITY
+   KEYBOARD SUPPORT FOR ENVELOPE
 ========================================================= */
 
 if (envelope) {
@@ -511,7 +784,7 @@ if (envelope) {
 
 
 /* =========================================================
-   INITIAL UI STATE
+   INITIAL UI
 ========================================================= */
 
 updateMusicUI();
